@@ -1,59 +1,11 @@
-# How it differs to https://github.com/xkjyeah/vue-google-maps
-
-The autocomplete supports cutsom text field via scoped slot
-
-```html
-          <gmap-autocomplete class="introInput" >
-                    <template v-slot:input="slotProps">
-                        <v-text-field outlined 
-                                      prepend-inner-icon="place" 
-                                      placeholder="Location Of Event" 
-                                      ref="input" 
-                                      v-on:listeners="slotProps.listeners" 
-                                      v-on:attrs="slotProps.attrs">
-                        </v-text-field>
-                    </template>
-        </gmap-autocomplete>
-```
-
-The ref on the element must be called input, if the element is a vue component then it must have a child ref called input (like in vuetify text-field) or speciy a custom name via childRefName property (only works one level deep into a component).
-
-The v-on:listeners is rquired, v-on:attrs may or may not be required depending on your implementation.
-
-This requires vue 2.6 or higher for the new slot support.
-
-
-# CONTRIBUTORS NEEDED!
-
-It's been increasingly difficult for me to make time to maintain this project.
-My projects at work have also gradually migrated away from Google Maps (but still on Vue -- Vue's awesome!),
-so there's less and less incentive to maintain.
-
-If you have time to contribute to a rather frequently used library, feel free to make a PR!
-For more background, please refer to [this issue](https://github.com/xkjyeah/vue-google-maps/issues/514).
-
-What's urgently needed are:
-
-1. Better automated tests
-2. Better integration tests with the popular frameworks, especially Nuxt and Vue template
-3. Better documentation (examples, recommendations)
-
-The above three will go a long way to keeping the project maintainable and contributable, and will address many of the open issues.
-
 # vue-google-maps
-
-[![Build Status](https://travis-ci.org/xkjyeah/vue-google-maps.svg?branch=vue2)](https://travis-ci.org/xkjyeah/vue-google-maps)
-
-## Vue-2 port of vue-google-maps
-
-This is the Vue 2.x port of vue-google-maps!
 
 ## Installation
 
 ### With npm (Recommended)
 
 ```
-npm install vue2-google-maps
+@paunovic/vue2-google-maps
 ```
 
 ### Manually
@@ -97,7 +49,7 @@ In your `main.js` or inside a Nuxt plugin:
 
 ```js
 import Vue from 'vue'
-import * as VueGoogleMaps from 'vue2-google-maps'
+import * as VueGoogleMaps from '@paunovic/vue2-google-maps'
 
 Vue.use(VueGoogleMaps, {
   load: {
@@ -118,7 +70,7 @@ Vue.use(VueGoogleMaps, {
   // autobindAllEvents: false,
 
   //// If you want to manually install components, e.g.
-  //// import {GmapMarker} from 'vue2-google-maps/src/components/marker'
+  //// import {GmapMarker} from '@paunovic/vue2-google-maps/src/components/marker'
   //// Vue.component('GmapMarker', GmapMarker)
   //// then set installComponents to 'false'.
   //// If you want to automatically install all the components this property must be set to 'true':
@@ -153,7 +105,7 @@ If you need to gain access to the `google` object:
     :position="google && new google.maps.LatLng(1.38, 103.8)" />
 </template>
 <script>
-import {gmapApi} from 'vue2-google-maps'
+import {gmapApi} from '@paunovic/vue2-google-maps'
 
 export default {
   computed: {
@@ -193,18 +145,41 @@ Vue.use(VueGoogleMaps, {
 })
 ```
 
+### Autocomplete slot
+
+The autocomplete supports custom text field via scoped slot
+
+```html
+<gmap-autocomplete class="introInput" >
+  <template v-slot:input="slotProps">
+    <v-text-field outlined
+      prepend-inner-icon="place"
+      placeholder="Location Of Event"
+      ref="input"
+      v-on:listeners="slotProps.listeners"
+      v-on:attrs="slotProps.attrs">
+    </v-text-field>
+  </template>
+</gmap-autocomplete>
+```
+The ref on the element must be called input, if the element is a vue component then it must have a child ref called input (like in vuetify text-field) or speciy a custom name via childRefName property (only works one level deep into a component).
+
+The v-on:listeners is rquired, v-on:attrs may or may not be required depending on your implementation.
+
+This requires vue 2.6 or higher for the new slot support.
+
 ### Nuxt.js config
 
 For Nuxt.js projects, please import VueGoogleMaps in the following manner:
 
 ```js
-import * as VueGoogleMaps from '~/node_modules/vue2-google-maps'
+import * as VueGoogleMaps from '~/node_modules/@paunovic/vue2-google-maps'
 ```
 
 Add the following to your `nuxt.config.js`'s `build.extend()`:
 
 ```js
-transpile: [/^vue2-google-maps($|\/)/]
+transpile: [/^@paunovic/vue2-google-maps($|\/)/]
 ```
 
 ### Officially supported components:
@@ -224,7 +199,7 @@ Auto-generated API documentation for these components are [here](http://xkjyeah.
 
 For `Cluster`, you **must** import the class specifically, e.g.
 ```js
-import GmapCluster from 'vue2-google-maps/dist/components/cluster' // replace src with dist if you have Babel issues
+import GmapCluster from '@paunovic/vue2-google-maps/dist/components/cluster' // replace src with dist if you have Babel issues
 
 Vue.component('GmapCluster', GmapCluster)
 ```
@@ -239,7 +214,7 @@ It should be relatively easy to add your own components (e.g. Heatmap, GroundOve
 Example for [DirectionsRenderer](https://developers.google.com/maps/documentation/javascript/reference/3/#DirectionsRenderer):
 ```js
 // DirectionsRenderer.js
-import {MapElementFactory} from 'vue2-google-maps'
+import {MapElementFactory} from '@paunovic/vue2-google-maps'
 
 export default MapElementFactory({
   name: 'directionsRenderer',
