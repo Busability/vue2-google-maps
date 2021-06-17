@@ -1,11 +1,9 @@
 # vue-google-maps
 
-## Installation
-
-### With npm (Recommended)
+### Installation
 
 ```
-@paunovic/vue2-google-maps
+npm i @paunovic/vue2-google-maps
 ```
 
 ### Manually
