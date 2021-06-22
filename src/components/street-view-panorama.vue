@@ -5,9 +5,7 @@
   </div>
 </template>
 
-<script>
-export default ((x) => x.default || x)(require('../components-implementation/street-view-panorama'))
-</script>
+<script src="../components-implementation/street-view-panorama.js" />
 
 <style lang="css">
 .vue-street-view-pano-container {
@@ -15,7 +13,10 @@ export default ((x) => x.default || x)(require('../components-implementation/str
 }
 
 .vue-street-view-pano-container .vue-street-view-pano {
-  left: 0; right: 0; top: 0; bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
   position: absolute;
 }
 </style>

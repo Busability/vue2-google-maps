@@ -8,9 +8,7 @@
   </div>
 </template>
 
-<script>
-export default ((x) => x.default || x)(require('../components-implementation/map'))
-</script>
+<script src="../components-implementation/map.js" />
 
 <style lang="css">
 .vue-map-container {
@@ -18,7 +16,10 @@ export default ((x) => x.default || x)(require('../components-implementation/map
 }
 
 .vue-map-container .vue-map {
-  left: 0; right: 0; top: 0; bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
   position: absolute;
 }
 .vue-map-hidden {
