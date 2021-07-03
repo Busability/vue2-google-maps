@@ -132,7 +132,7 @@ Cluster:
     </p>
     <pre>
 
-    import GmapCluster from 'vue2-google-maps/src/components/cluster'
+    import GmapCluster from '@busability/vue2-google-maps/src/components/cluster'
     <br>
     <br>Vue.component('GmapCluster', GmapCluster)
     </pre>

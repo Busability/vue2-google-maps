@@ -3,7 +3,7 @@
 ### Installation
 
 ```
-npm i vue2-google-maps
+npm i @busability/vue2-google-maps
 ```
 
 ### Manually
@@ -47,7 +47,7 @@ In your `main.js` or inside a Nuxt plugin:
 
 ```js
 import Vue from 'vue'
-import * as VueGoogleMaps from 'vue2-google-maps'
+import * as VueGoogleMaps from '@busability/vue2-google-maps'
 
 Vue.use(VueGoogleMaps, {
   load: {
@@ -68,7 +68,7 @@ Vue.use(VueGoogleMaps, {
   // autobindAllEvents: false,
 
   //// If you want to manually install components, e.g.
-  //// import {GmapMarker} from 'vue2-google-maps/src/components/marker'
+  //// import {GmapMarker} from '@busability/vue2-google-maps/src/components/marker'
   //// Vue.component('GmapMarker', GmapMarker)
   //// then set installComponents to 'false'.
   //// If you want to automatically install all the components this property must be set to 'true':
@@ -103,7 +103,7 @@ If you need to gain access to the `google` object:
     :position="google && new google.maps.LatLng(1.38, 103.8)" />
 </template>
 <script>
-import {gmapApi} from 'vue2-google-maps'
+import {gmapApi} from '@busability/vue2-google-maps'
 
 export default {
   computed: {
@@ -171,13 +171,13 @@ This requires vue 2.6 or higher for the new slot support.
 For Nuxt.js projects, please import VueGoogleMaps in the following manner:
 
 ```js
-import * as VueGoogleMaps from '~/node_modules/vue2-google-maps'
+import * as VueGoogleMaps from '~/node_modules/@busability/vue2-google-maps'
 ```
 
 Add the following to your `nuxt.config.js`'s `build.extend()`:
 
 ```js
-transpile: [/^vue2-google-maps($|\/)/]
+transpile: [/^@busability/vue2-google-maps($|\/)/]
 ```
 
 ### Officially supported components:
@@ -197,7 +197,7 @@ Auto-generated API documentation for these components are [here](http://xkjyeah.
 
 For `Cluster`, you **must** import the class specifically, e.g.
 ```js
-import GmapCluster from 'vue2-google-maps/dist/components/cluster' // replace src with dist if you have Babel issues
+import GmapCluster from '@busability/vue2-google-maps/dist/components/cluster' // replace src with dist if you have Babel issues
 
 Vue.component('GmapCluster', GmapCluster)
 ```
@@ -212,7 +212,7 @@ It should be relatively easy to add your own components (e.g. Heatmap, GroundOve
 Example for [DirectionsRenderer](https://developers.google.com/maps/documentation/javascript/reference/3/#DirectionsRenderer):
 ```js
 // DirectionsRenderer.js
-import {MapElementFactory} from 'vue2-google-maps'
+import {MapElementFactory} from '@busability/vue2-google-maps'
 
 export default MapElementFactory({
   name: 'directionsRenderer',

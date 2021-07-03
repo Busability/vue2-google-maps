@@ -154,7 +154,7 @@ export default {
         this.$mapObject = window[recycleKey].map
         this.$mapObject.setOptions(options)
       } else {
-        // console.warn('[vue2-google-maps] New google map created')
+        // console.warn('[@busability/vue2-google-maps] New google map created')
         this.$mapObject = new google.maps.Map(element, options)
         window[recycleKey] = { map: this.$mapObject }
       }
