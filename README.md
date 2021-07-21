@@ -1,5 +1,15 @@
 # vue-google-maps
 
+
+### Manual package publishing on NPM registry
+
+This should be avoided - there is an automated workflow which will publish a new version of the package on every push to main branch.
+
+```bash
+npm login # using your own credentials
+npm publish --access public
+```
+
 ### Installation
 
 ```
